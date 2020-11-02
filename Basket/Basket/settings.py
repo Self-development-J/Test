@@ -19,17 +19,20 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/2.2/howto/deployment/checklist/
 
-# SECURITY WARNING: keep the secret key used in production secret!
+# SECRET_KEY : 프로젝트 설정 보안을 위해서 임의로 생성된 암화화된 key 값으로 외부로부터의 접근 시 해당 key 값을 모를 경우 접근할 수 없도록 한 값.
+# SECURITY WARNING: keep the secret key used in production secret! 외부에 노출되면 안돼!!
 SECRET_KEY = '16#%h@(rq3wujvz1dv-#7j+yx*(!1-*=smu6@z1yjk!@l!^!_z'
 
-# SECURITY WARNING: don't run with debug turned on in production!
+# 개발과정에서 오류가 발생할 때 True로 설정하면 오류에 대한 세부내역을 모두 볼 수 있음.
+# SECURITY WARNING: don't run with debug turned on in production! 배포중일 때 True쓰면 안돼!!
 DEBUG = True
 
+# 외부로부터 허용된 호스트 목록을 나타낼 때 사용. DEBUG=False일 경우 허용된 호스트만 접근할 수 있다.
 ALLOWED_HOSTS = []
 
 
 # Application definition
-
+# 기본 라이브러리를 앱 형태로 제공. 추후 앱을 생성할 경우 이부분에 추가해야 프로젝트 내에서 사용할 수 있음
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -39,6 +42,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 ]
 
+# 보안 및 세션, 암호화된 자료 통신 시 사용되는 미들웨어 컴포넌트를 기본제공한다.
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -49,8 +53,10 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
+# url 설정파일을 지정함. 디렉토리 내의 urls.py를 지정.
 ROOT_URLCONF = 'Basket.urls'
 
+# 프로젝트 및 앱의 웹페이지 양식을 저장하기 위한 Template파일을 포함한 디렉토리를 어떤 형태로 구성할 것인지에 대한 설정
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
@@ -67,9 +73,10 @@ TEMPLATES = [
     },
 ]
 
+# WSGI : django의 배포 플랫폼. 웹 애플리케이션가 서버간의 인터페이스 규약으로 사용됨. 
 WSGI_APPLICATION = 'Basket.wsgi.application'
 
-
+# 사용할 DB를 지정하는 구문.
 # Database
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
 
@@ -80,7 +87,7 @@ DATABASES = {
     }
 }
 
-
+# 사용자 비밀번호에 대한 유효성
 # Password validation
 # https://docs.djangoproject.com/en/2.2/ref/settings/#auth-password-validators
 
@@ -99,7 +106,7 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-
+# 기본언어, 표준 시간대, 다국어 페이지 작성시 이에 대한 기본 프레임워크(국제화, 현지화), 웹페이지 내 특정 용도에 따라 사용되는 파일.
 # Internationalization
 # https://docs.djangoproject.com/en/2.2/topics/i18n/
 

@@ -1,0 +1,35 @@
+# 간단히 알아보자 - django
+>>> 주요 파일들
+1) 프로젝트 기본 파일 구조
+test_proj/   			project 포함 디텍토리
+	test_proj/		project root 디렉토리
+		__pycache__/ 	웹페이지 구성을 특정 기능 정의
+		__init__.py	
+		settings.py  	django 프로젝트 파일
+		urls.py 	django 프로젝트 URL 명시 파일
+		wsgi.py		django 프로젝트 웹 서비스 호환파일
+	db.sqlite3		sqlite db파일
+	manage.py		프로젝트 실행 파일
+2) 앱 기본 파일 구조
+test_app/			앱 루트 디렉토리
+	__init__.py		
+	admin.py		앱 관리자 페이지 등록 model 정보
+	apps.py			앱 실행 시 초기 실행 등 설정 파일
+	models.py		앱 model 정보
+	tests.py		앱 test 파일
+	views.py		앱 view 정보
+	migrations/		앱 내 model 갱신 시 사용
+		__init__.py
+
+>>> django 작동
+	python manage.py [수행 명령어]
+
+	- runserver : 			웹서버를 작동한다. 기본 8000번 포트를 사용한다.
+	- startapp [앱 이름] : 		django 프로젝트 내의 앱을 생성할 때 사용된다.
+	- makemigrations [앱 이름] : 	사용하는 모든 앱에서 DB모델에 대한 변경사항이 있을 경우 이를 하나의 파일로 생성하는 작업을 뜻함.
+	- migrate : 			모델에 대한 변경사항을 적용할 때 사용하는 명령어.
+	- createsuperuser : 		관리자 페이지 접속을 위한 사용자를 생성하는 명령어.
+	- collectstatic : 		static 디렉토리를 생성해여 앱별로 정적 파일을 모두 배치시킬 때 사용하는 명령어.
+	- shell : 			파이썬 shell과 동일한 기능을 수행하지만 현재 사용중인 웹 애플리케이션의 명령을 수행할 수 있는 환경을 제공.	
+
+
